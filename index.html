@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -166,7 +165,7 @@
         }
         .sidebar .nav-links a:hover {
             color: #f5c518;
-            transform: translateX(5px); /* Déplacement léger au survol */
+            transform: translateX(5px);
         }
         .sidebar .contact {
             font-size: 0.85em;
@@ -330,15 +329,6 @@
         .job .logo:hover {
             transform: scale(1.2);
         }
-        .job figcaption {
-            font-size: 0.7em;
-            color: #666;
-            text-align: center;
-            margin-top: 5px;
-        }
-        body.dark .job figcaption {
-            color: #a0aec0;
-        }
         .job .content {
             flex: 1;
         }
@@ -374,24 +364,28 @@
             gap: 8px;
         }
         .hashtags a, .hashtags span {
-            color: #0a66c2;
+            background: linear-gradient(90deg, #0a66c2 0%, #6a0dad 100%); /* Dégradé bleu/violet */
+            color: #fff; /* Texte blanc pour lisibilité */
             font-weight: 500;
             text-decoration: none;
-            transition: transform 0.3s ease, color 0.3s ease;
+            padding: 4px 8px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, background 0.3s ease;
             display: inline-block;
             opacity: 0;
             animation: fadeInHashtag 0.5s ease forwards;
         }
         .hashtags a:hover {
-            color: #f5c518;
+            background: linear-gradient(90deg, #f5c518 0%, #d4a017 100%); /* Dégradé jaune au survol */
             transform: scale(1.1);
-            text-decoration: underline;
+            text-decoration: none;
         }
         body.dark .hashtags a, body.dark .hashtags span {
-            color: #63b3ed;
+            background: linear-gradient(90deg, #2d3748 0%, #6a0dad 100%); /* Dégradé sombre en mode dark */
+            color: #fff;
         }
         body.dark .hashtags a:hover {
-            color: #f5c518;
+            background: linear-gradient(90deg, #f5c518 0%, #d4a017 100%);
         }
         .hashtags a:nth-child(1), .hashtags span:nth-child(1) { animation-delay: 0.1s; }
         .hashtags a:nth-child(2), .hashtags span:nth-child(2) { animation-delay: 0.2s; }
@@ -607,7 +601,7 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <img src="images/photo2.png" alt="Photo de profil de Jahangir Thasin" class="profile-pic">
+        <img src="images/photo2.png" alt="Portrait professionnel de Jahangir Thasin, consultant en qualité logiciel" class="profile-pic">
         <h1>Jahangir Thasin</h1>
         <p id="sidebar-title-fr" class="lang-fr active">Expert en Tests Logiciels</p>
         <p id="sidebar-title-en" class="lang-en">Software Testing Expert</p>
@@ -644,7 +638,6 @@
             <div class="lang-fr active">
                 <a href="#apropos">À Propos</a>
                 <a href="#experiences">Expériences</a>
-                <a href="#projets">Projets</a>
                 <a href="#competences">Compétences</a>
                 <a href="#formations">Formations</a>
                 <a href="#langues">Langues</a>
@@ -652,7 +645,6 @@
             <div class="lang-en">
                 <a href="#about">About Me</a>
                 <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
                 <a href="#education">Education</a>
                 <a href="#languages">Languages</a>
@@ -690,10 +682,10 @@
                     </div>
                     <div class="about-badges">
                         <a href="https://www.scrum.org/certifications/professional-scrum-product-owner" target="_blank" aria-label="Certification Professional Scrum Product Owner">
-                            <img src="images/pspo-logo.png" alt="Certification Professional Scrum Product Owner" class="badge">
+                            <img src="images/pspo-logo.png" alt="Badge de certification Professional Scrum Product Owner de Scrum.org" class="badge">
                         </a>
                         <a href="https://www.istqb.org/" target="_blank" aria-label="Certification ISTQB">
-                            <img src="images/istqb-logo.png" alt="Certification ISTQB" class="badge">
+                            <img src="images/istqb-logo.png" alt="Badge de certification ISTQB pour les tests logiciels" class="badge">
                         </a>
                     </div>
                 </div>
@@ -707,10 +699,10 @@
                     </div>
                     <div class="about-badges">
                         <a href="https://www.scrum.org/certifications/professional-scrum-product-owner" target="_blank" aria-label="Professional Scrum Product Owner Certification">
-                            <img src="images/pspo-logo.png" alt="Professional Scrum Product Owner Certification" class="badge">
+                            <img src="images/pspo-logo.png" alt="Professional Scrum Product Owner certification badge from Scrum.org" class="badge">
                         </a>
                         <a href="https://www.istqb.org/" target="_blank" aria-label="ISTQB Certification">
-                            <img src="images/istqb-logo.png" alt="ISTQB Certification" class="badge">
+                            <img src="images/istqb-logo.png" alt="ISTQB certification badge for software testing" class="badge">
                         </a>
                     </div>
                 </div>
@@ -721,7 +713,7 @@
                 <h2>Expériences Professionnelles</h2>
                 <div class="job">
                     <figure>
-                        <img src="images/bred-logo.png" alt="Logo de BRED Banque Populaire" class="logo">
+                        <img src="images/bred-logo.png" alt="Logo officiel de BRED Banque Populaire, une banque française" class="logo">
                     </figure>
                     <div class="content">
                         <h3>Consultant Ingénieur Qualité - BRED Banque Populaire</h3>
@@ -735,19 +727,18 @@
                             <li>Élaboration de rapports détaillés sur l’avancement et la qualité</li>
                         </ul>
                         <p><strong>Outils :</strong> <span class="hashtags">
-                            <a href="https://fr.wikipedia.org/wiki/Jira_(logiciel)" target="_blank" aria-label="En savoir plus sur JIRA">#JIRA</a>
+                            <span>#JIRA</span>
                             <span>#Xray</span>
                             <span>#AIS</span>
                             <span>#RDJ</span>
-                            <a href="https://fr.wikipedia.org/wiki/SQL" target="_blank" aria-label="En savoir plus sur SQL">#SQL</a>
-                            <a href="https://fr.wikipedia.org/wiki/Oracle_Database" target="_blank" aria-label="En savoir plus sur Oracle Database">#Oracle</a>
+                            <span>#SQL</span>
+                            <span>#Oracle</span>
                         </span></p>
                     </div>
                 </div>
                 <div class="job">
                     <figure>
-                        <img src="images/accor-logo.png" alt="Logo d’Accor Hôtels" class="logo">
-                        <figcaption>Logo d’Accor Hôtels</figcaption>
+                        <img src="images/accor-logo.png" alt="Logo officiel d’Accor Hôtels, une chaîne hôtelière internationale" class="logo">
                     </figure>
                     <div class="content">
                         <h3>Consultant Ingénieur Qualité - Accor Hôtels</h3>
@@ -766,7 +757,7 @@
                         <p><strong>Outils :</strong> <span class="hashtags">
                             <span>#iOS</span>
                             <span>#Android</span>
-                            <a href="https://fr.wikipedia.org/wiki/Jira_(logiciel)" target="_blank" aria-label="En savoir plus sur JIRA">#JIRA</a>
+                            <span>#JIRA</span>
                             <span>#Xray</span>
                             <span>#CharlesProxy</span>
                             <span>#Confluence</span>
@@ -775,8 +766,7 @@
                 </div>
                 <div class="job">
                     <figure>
-                        <img src="images/visiodent-logo.png" alt="Logo de Visiodent" class="logo">
-                        <figcaption>Logo de Visiodent</figcaption>
+                        <img src="images/visiodent-logo.png" alt="Logo officiel de Visiodent, éditeur de logiciels pour professionnels de la santé" class="logo">
                     </figure>
                     <div class="content">
                         <h3>Responsable Qualité Logiciel - Visiodent</h3>
@@ -799,8 +789,7 @@
                 </div>
                 <div class="job">
                     <figure>
-                        <img src="images/oodrive-logo.png" alt="Logo d’Oodrive" class="logo">
-                        <figcaption>Logo d’Oodrive</figcaption>
+                        <img src="images/oodrive-logo.png" alt="Logo officiel d’Oodrive, entreprise de solutions de gestion de données" class="logo">
                     </figure>
                     <div class="content">
                         <h3>Ingénieur Qualité Logiciel - Oodrive</h3>
@@ -814,7 +803,7 @@
                             <li>Support Niveau 3</li>
                         </ul>
                         <p><strong>Outils :</strong> <span class="hashtags">
-                            <a href="https://fr.wikipedia.org/wiki/Jira_(logiciel)" target="_blank" aria-label="En savoir plus sur JIRA">#JIRA</a>
+                            <span>#JIRA</span>
                             <span>#Zephyr</span>
                             <span>#Confluence</span>
                             <span>#Ranorex</span>
@@ -823,8 +812,7 @@
                 </div>
                 <div class="job">
                     <figure>
-                        <img src="images/vinci-logo.png" alt="Logo de Vinci Construction" class="logo">
-                        <figcaption>Logo de Vinci Construction</figcaption>
+                        <img src="images/vinci-logo.png" alt="Logo officiel de Vinci Construction, entreprise de construction internationale" class="logo">
                     </figure>
                     <div class="content">
                         <h3>Consultant Ingénieur Qualité - Vinci Construction</h3>
@@ -843,8 +831,7 @@
                 </div>
                 <div class="job">
                     <figure>
-                        <img src="images/profil-technology-logo.png" alt="Logo de Profil Technology" class="logo">
-                        <figcaption>Logo de Profil Technology</figcaption>
+                        <img src="images/profil-technology-logo.png" alt="Logo officiel de Profil Technology, éditeur de logiciels de sécurité" class="logo">
                     </figure>
                     <div class="content">
                         <h3>Ingénieur Tests Logiciels - Profil Technology</h3>
@@ -866,8 +853,7 @@
                 </div>
                 <div class="job">
                     <figure>
-                        <img src="images/profil-technology-logo.png" alt="Logo de Profil Technology" class="logo">
-                        <figcaption>Logo de Profil Technology</figcaption>
+                        <img src="images/profil-technology-logo.png" alt="Logo officiel de Profil Technology, éditeur de logiciels de sécurité" class="logo">
                     </figure>
                     <div class="content">
                         <h3>Ingénieur Support Niveau 3, Testeur - Profil Technology</h3>
@@ -885,8 +871,7 @@
                 <h2>Professional Experience</h2>
                 <div class="job">
                     <figure>
-                        <img src="images/bred-logo.png" alt="Logo of BRED Banque Populaire" class="logo">
-                        <figcaption>Logo of BRED Banque Populaire</figcaption>
+                        <img src="images/bred-logo.png" alt="Official logo of BRED Banque Populaire, a French bank" class="logo">
                     </figure>
                     <div class="content">
                         <h3>Software Quality Engineer Consultant - BRED Banque Populaire</h3>
@@ -900,19 +885,18 @@
                             <li>Preparation of detailed reports on progress and quality</li>
                         </ul>
                         <p><strong>Tools:</strong> <span class="hashtags">
-                            <a href="https://en.wikipedia.org/wiki/Jira_(software)" target="_blank" aria-label="Learn more about JIRA">#JIRA</a>
+                            <span>#JIRA</span>
                             <span>#Xray</span>
                             <span>#AIS</span>
                             <span>#RDJ</span>
-                            <a href="https://en.wikipedia.org/wiki/SQL" target="_blank" aria-label="Learn more about SQL">#SQL</a>
-                            <a href="https://en.wikipedia.org/wiki/Oracle_Database" target="_blank" aria-label="Learn more about Oracle Database">#Oracle</a>
+                            <span>#SQL</span>
+                            <span>#Oracle</span>
                         </span></p>
                     </div>
                 </div>
                 <div class="job">
                     <figure>
-                        <img src="images/accor-logo.png" alt="Logo of Accor Hotels" class="logo">
-                        <figcaption>Logo of Accor Hotels</figcaption>
+                        <img src="images/accor-logo.png" alt="Official logo of Accor Hotels, an international hotel chain" class="logo">
                     </figure>
                     <div class="content">
                         <h3>Software Quality Engineer Consultant - Accor Hotels</h3>
@@ -931,7 +915,7 @@
                         <p><strong>Tools:</strong> <span class="hashtags">
                             <span>#iOS</span>
                             <span>#Android</span>
-                            <a href="https://en.wikipedia.org/wiki/Jira_(software)" target="_blank" aria-label="Learn more about JIRA">#JIRA</a>
+                            <span>#JIRA</span>
                             <span>#Xray</span>
                             <span>#CharlesProxy</span>
                             <span>#Confluence</span>
@@ -940,8 +924,7 @@
                 </div>
                 <div class="job">
                     <figure>
-                        <img src="images/visiodent-logo.png" alt="Logo of Visiodent" class="logo">
-                        <figcaption>Logo of Visiodent</figcaption>
+                        <img src="images/visiodent-logo.png" alt="Official logo of Visiodent, a software publisher for healthcare professionals" class="logo">
                     </figure>
                     <div class="content">
                         <h3>Software Quality Manager - Visiodent</h3>
@@ -964,8 +947,7 @@
                 </div>
                 <div class="job">
                     <figure>
-                        <img src="images/oodrive-logo.png" alt="Logo of Oodrive" class="logo">
-                        <figcaption>Logo of Oodrive</figcaption>
+                        <img src="images/oodrive-logo.png" alt="Official logo of Oodrive, a data management solutions company" class="logo">
                     </figure>
                     <div class="content">
                         <h3>Software Quality Engineer - Oodrive</h3>
@@ -979,7 +961,7 @@
                             <li>Level 3 support</li>
                         </ul>
                         <p><strong>Tools:</strong> <span class="hashtags">
-                            <a href="https://en.wikipedia.org/wiki/Jira_(software)" target="_blank" aria-label="Learn more about JIRA">#JIRA</a>
+                            <span>#JIRA</span>
                             <span>#Zephyr</span>
                             <span>#Confluence</span>
                             <span>#Ranorex</span>
@@ -988,8 +970,7 @@
                 </div>
                 <div class="job">
                     <figure>
-                        <img src="images/vinci-logo.png" alt="Logo of Vinci Construction" class="logo">
-                        <figcaption>Logo of Vinci Construction</figcaption>
+                        <img src="images/vinci-logo.png" alt="Official logo of Vinci Construction, an international construction company" class="logo">
                     </figure>
                     <div class="content">
                         <h3>Software Quality Engineer Consultant - Vinci Construction</h3>
@@ -1008,8 +989,7 @@
                 </div>
                 <div class="job">
                     <figure>
-                        <img src="images/profil-technology-logo.png" alt="Logo of Profil Technology" class="logo">
-                        <figcaption>Logo of Profil Technology</figcaption>
+                        <img src="images/profil-technology-logo.png" alt="Official logo of Profil Technology, a security software publisher" class="logo">
                     </figure>
                     <div class="content">
                         <h3>Software Test Engineer - Profil Technology</h3>
@@ -1031,8 +1011,7 @@
                 </div>
                 <div class="job">
                     <figure>
-                        <img src="images/profil-technology-logo.png" alt="Logo of Profil Technology" class="logo">
-                        <figcaption>Logo of Profil Technology</figcaption>
+                        <img src="images/profil-technology-logo.png" alt="Official logo of Profil Technology, a security software publisher" class="logo">
                     </figure>
                     <div class="content">
                         <h3>Level 3 Support Engineer, Tester - Profil Technology</h3>
@@ -1046,8 +1025,6 @@
                 </div>
             </div>
 
-        
-          
             <!-- Compétences Techniques (French) -->
             <div id="competences" class="section skills lang-fr active">
                 <h2>Compétences Techniques</h2>
@@ -1115,7 +1092,7 @@
                 <h2>Formations</h2>
                 <div class="education">
                     <div class="education-item">
-                        <img src="images/pspo-logo.png" alt="Certification Professional Scrum Product Owner" class="cert-logo">
+                        <img src="images/pspo-logo.png" alt="Badge de certification Professional Scrum Product Owner de Scrum.org" class="cert-logo">
                         <div>
                             <h3>Certification Professional Scrum Product Owner</h3>
                             <p><strong>2020</strong> | Scrum.org</p>
@@ -1124,7 +1101,7 @@
                 </div>
                 <div class="education">
                     <div class="education-item">
-                        <img src="images/istqb-logo.png" alt="Certification ISTQB" class="cert-logo">
+                        <img src="images/istqb-logo.png" alt="Badge de certification ISTQB pour les tests logiciels" class="cert-logo">
                         <div>
                             <h3>Formation ISTQB</h3>
                             <p><strong>2015</strong> | Learning Tree International</p>
@@ -1133,7 +1110,7 @@
                 </div>
                 <div class="education">
                     <div class="education-item">
-                        <img src="images/imesg-logo.png" alt="Formation Administrateur de Sécurité" class="cert-logo">
+                        <img src="images/imesg-logo.png" alt="Logo de la formation Administrateur de Sécurité de l'IMESG" class="cert-logo">
                         <div>
                             <h3>Formation Administrateur de Sécurité</h3>
                             <p><strong>2006</strong></p>
@@ -1146,7 +1123,7 @@
                 <h2>Education</h2>
                 <div class="education">
                     <div class="education-item">
-                        <img src="images/pspo-logo.png" alt="Professional Scrum Product Owner Certification" class="cert-logo">
+                        <img src="images/pspo-logo.png" alt="Professional Scrum Product Owner certification badge from Scrum.org" class="cert-logo">
                         <div>
                             <h3>Professional Scrum Product Owner Certification</h3>
                             <p><strong>2020</strong> | Scrum.org</p>
@@ -1155,7 +1132,7 @@
                 </div>
                 <div class="education">
                     <div class="education-item">
-                        <img src="images/istqb-logo.png" alt="ISTQB Certification" class="cert-logo">
+                        <img src="images/istqb-logo.png" alt="ISTQB certification badge for software testing" class="cert-logo">
                         <div>
                             <h3>ISTQB Training</h3>
                             <p><strong>2015</strong> | Learning Tree International</p>
@@ -1164,7 +1141,7 @@
                 </div>
                 <div class="education">
                     <div class="education-item">
-                        <img src="images/imesg-logo.png" alt="Security Administrator Training" class="cert-logo">
+                        <img src="images/imesg-logo.png" alt="Security Administrator Training logo from IMESG" class="cert-logo">
                         <div>
                             <h3>Security Administrator Training</h3>
                             <p><strong>2006</strong></p>
