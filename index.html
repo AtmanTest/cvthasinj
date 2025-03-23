@@ -125,7 +125,7 @@
             align-items: center;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
             transition: background 0.3s;
-            overflow-y: auto; /* Ajout pour permettre le défilement vertical */
+            overflow-y: auto;
         }
         body.dark .sidebar {
             background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
@@ -164,9 +164,9 @@
             color: #f5c518;
         }
         .sidebar .contact {
-            margin-top: auto;
             font-size: 0.85em;
             text-align: center;
+            margin-bottom: 20px; /* Ajout d'une marge pour espacer du contenu suivant */
         }
         .sidebar .contact a {
             color: #f5c518;
@@ -430,7 +430,7 @@
                 position: relative;
                 top: 60px;
                 padding: 15px;
-                overflow-y: visible; /* Pas besoin de défilement en mode mobile */
+                overflow-y: visible;
             }
             .main-content {
                 margin-left: 0;
@@ -480,31 +480,7 @@
         <h1>Jahangir Thasin</h1>
         <p id="sidebar-title-fr" class="lang-fr active">Expert en Tests Logiciels</p>
         <p id="sidebar-title-en" class="lang-en">Software Testing Expert</p>
-        <div class="nav-links">
-            <!-- Navigation en français -->
-            <div class="lang-fr active">
-                <a href="#apropos">À Propos</a>
-                <a href="#experiences">Expériences</a>
-                <a href="#competences">Compétences</a>
-                <a href="#formations">Formations</a>
-                <a href="#langues">Langues</a>
-            </div>
-            <!-- Navigation en anglais -->
-            <div class="lang-en">
-                <a href="#about">About Me</a>
-                <a href="#experience">Experience</a>
-                <a href="#skills">Skills</a>
-                <a href="#education">Education</a>
-                <a href="#languages">Languages</a>
-            </div>
-        </div>
-        <div class="theme-toggle">
-            <button id="theme-toggle" aria-label="Toggle Dark Mode">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-            </button>
-        </div>
+        <!-- Déplacer la section contact ici -->
         <div class="contact">
             <p>
                 <a href="tel:+33673563266">
@@ -533,6 +509,31 @@
                     LinkedIn
                 </a>
             </p>
+        </div>
+        <div class="nav-links">
+            <!-- Navigation en français -->
+            <div class="lang-fr active">
+                <a href="#apropos">À Propos</a>
+                <a href="#experiences">Expériences</a>
+                <a href="#competences">Compétences</a>
+                <a href="#formations">Formations</a>
+                <a href="#langues">Langues</a>
+            </div>
+            <!-- Navigation en anglais -->
+            <div class="lang-en">
+                <a href="#about">About Me</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#languages">Languages</a>
+            </div>
+        </div>
+        <div class="theme-toggle">
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
         </div>
     </div>
 
