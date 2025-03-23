@@ -397,8 +397,9 @@
         .cert-logo:hover {
             transform: scale(1.1);
         }
-        body.dark .cert-logo {
-            filter: brightness(0) invert(1);
+        /* Désactiver le filtre pour les logos de la section "Formations" en mode sombre */
+        body.dark .education-item .cert-logo {
+            filter: none;
         }
         /* Animations */
         @keyframes fadeIn {
