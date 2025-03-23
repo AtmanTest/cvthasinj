@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,53 +17,249 @@
     <title>Jahangir Thasin - Expert en Tests Logiciels</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: #f0f0f0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f4f8;
             color: #333;
+            line-height: 1.6;
+            position: relative;
             transition: background 0.3s, color 0.3s;
         }
         body.dark {
             background: #1a202c;
             color: #e2e8f0;
         }
+        /* Header (Top Design) */
         .header {
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #0a66c2 0%, #004182 100%);
+            color: #fff;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             z-index: 1000;
+            transition: background 0.3s;
         }
         body.dark .header {
-            background: #2d3748;
+            background: linear-gradient(90deg, #2d3748 0%, #1a202c 100%);
         }
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 250px;
-            height: 100%;
+        .header h1 {
+            font-size: 1.5em;
+            font-weight: 500;
+        }
+        .header .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .header .language-toggle {
+            display: flex;
+            gap: 5px;
+        }
+        .header .language-toggle button {
+            background: #f5c518;
+            color: #333;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .header .language-toggle button.active {
             background: #fff;
+            color: #0a66c2;
+            font-weight: 700;
+        }
+        .header .language-toggle button:hover {
+            background: #d4a017;
+            transform: scale(1.05);
+        }
+        /* Fond animé avec particules */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a66c2 0%, #004182 100%);
+            transition: background 0.3s;
+        }
+        body.dark .particles {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+        }
+        .particles::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"%3E%3Ccircle cx="400" cy="400" r="2" fill="%23ffffff" opacity="0.3"%3E%3Canimate attributeName="cx" values="400;410;400" dur="3s" repeatCount="indefinite"/%3E%3Canimate attributeName="cy" values="400;390;400" dur="3s" repeatCount="indefinite"/%3E%3C/circle%3E%3Ccircle cx="200" cy="200" r="2" fill="%23ffffff" opacity="0.3"%3E%3Canimate attributeName="cx" values="200;210;200" dur="4s" repeatCount="indefinite"/%3E%3Canimate attributeName="cy" values="200;190;200" dur="4s" repeatCount="indefinite"/%3E%3C/circle%3E%3Ccircle cx="600" cy="600" r="2" fill="%23ffffff" opacity="0.3"%3E%3Canimate attributeName="cx" values="600;610;600" dur="5s" repeatCount="indefinite"/%3E%3Canimate attributeName="cy" values="600;590;600" dur="5s" repeatCount="indefinite"/%3E%3C/circle%3E%3C/svg%3E');
+            background-size: 100px;
+            animation: particleMove 20s linear infinite;
+        }
+        @keyframes particleMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: linear-gradient(180deg, #0a66c2 0%, #004182 100%);
+            color: #fff;
+            height: 100vh;
+            position: fixed;
+            top: 70px;
             padding: 20px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+            overflow-y: auto;
         }
         body.dark .sidebar {
+            background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
+        }
+        .sidebar .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            object-fit: cover;
+            border: 3px solid #f5c518;
+            transition: transform 0.3s;
+        }
+        .sidebar .profile-pic:hover {
+            transform: scale(1.1);
+        }
+        .sidebar h1 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .sidebar p {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .sidebar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 10px 0;
+            display: block;
+            font-size: 0.95em;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .sidebar .nav-links a:hover {
+            color: #f5c518;
+            transform: translateX(5px); /* Déplacement léger au survol */
+        }
+        .sidebar .contact {
+            font-size: 0.85em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar .contact a {
+            color: #f5c518;
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .sidebar .contact a:hover {
+            color: #fff;
+            transform: scale(1.05);
+        }
+        .sidebar .contact a svg {
+            margin-right: 5px;
+        }
+        .sidebar .theme-toggle {
+            margin: 10px 0;
+        }
+        .sidebar .theme-toggle button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .sidebar .theme-toggle button:hover {
+            color: #f5c518;
+            transform: rotate(15deg);
+        }
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+            padding: 90px 20px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: background 0.3s;
+        }
+        body.dark .container {
             background: #2d3748;
         }
-        .main-content {
-            margin-left: 270px;
-            padding: 80px 20px 20px;
+        /* Hero */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #0a66c2 0%, #004182 100%);
+            color: #fff;
+            padding: 80px 30px;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+            overflow: hidden;
+            transition: background 0.3s;
         }
+        body.dark .hero {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"%3E%3Ccircle cx="400" cy="400" r="2" fill="%23ffffff" opacity="0.3"%3E%3Canimate attributeName="cx" values="400;410;400" dur="3s" repeatCount="indefinite"/%3E%3Canimate attributeName="cy" values="400;390;400" dur="3s" repeatCount="indefinite"/%3E%3C/circle%3E%3C/svg%3E');
+            background-size: 50px;
+            animation: particleMove 20s linear infinite;
+            opacity: 0.2;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease-out;
+        }
+        .hero p {
+            font-size: 1.2em;
+            animation: fadeInUp 1s ease-out 0.3s;
+            animation-fill-mode: both;
+        }
+        /* Sections */
         .section {
-            margin-bottom: 40px;
+            padding: 40px 30px;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.5s, transform 0.5s;
@@ -71,90 +268,322 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .section h2 {
+            font-size: 1.8em;
+            color: #0a66c2;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f5c518;
+            padding-bottom: 10px;
+            animation: fadeIn 0.5s ease-out;
+        }
+        body.dark .section h2 {
+            color: #63b3ed;
+        }
+        /* À Propos / About Me */
+        .about-content {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-badges {
+            display: flex;
+            gap: 10px;
+        }
+        .about-badges .badge {
+            width: 50px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        .about-badges .badge:hover {
+            transform: scale(1.1);
+        }
+        /* Expériences et Projets */
+        .job {
+            background: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        body.dark .job {
+            background: #4a5568;
+        }
+        .job:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .job figure {
+            margin-right: 20px;
+        }
+        .job .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .job .logo:hover {
+            transform: scale(1.2);
+        }
+        .job figcaption {
+            font-size: 0.7em;
+            color: #666;
+            text-align: center;
+            margin-top: 5px;
+        }
+        body.dark .job figcaption {
+            color: #a0aec0;
+        }
+        .job .content {
+            flex: 1;
+        }
+        .job h3 {
+            font-size: 1.2em;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        .job p {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        body.dark .job p {
+            color: #a0aec0;
+        }
+        .job ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .job ul li {
+            font-size: 0.9em;
+            color: #444;
+            margin-bottom: 5px;
+        }
+        body.dark .job ul li {
+            color: #e2e8f0;
+        }
+        /* Hashtags pour les outils */
+        .hashtags {
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .hashtags a, .hashtags span {
+            color: #0a66c2;
+            font-weight: 500;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+            display: inline-block;
+            opacity: 0;
+            animation: fadeInHashtag 0.5s ease forwards;
+        }
+        .hashtags a:hover {
+            color: #f5c518;
+            transform: scale(1.1);
+            text-decoration: underline;
+        }
+        body.dark .hashtags a, body.dark .hashtags span {
+            color: #63b3ed;
+        }
+        body.dark .hashtags a:hover {
+            color: #f5c518;
+        }
+        .hashtags a:nth-child(1), .hashtags span:nth-child(1) { animation-delay: 0.1s; }
+        .hashtags a:nth-child(2), .hashtags span:nth-child(2) { animation-delay: 0.2s; }
+        .hashtags a:nth-child(3), .hashtags span:nth-child(3) { animation-delay: 0.3s; }
+        .hashtags a:nth-child(4), .hashtags span:nth-child(4) { animation-delay: 0.4s; }
+        .hashtags a:nth-child(5), .hashtags span:nth-child(5) { animation-delay: 0.5s; }
+        .hashtags a:nth-child(6), .hashtags span:nth-child(6) { animation-delay: 0.6s; }
+        @keyframes fadeInHashtag {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Compétences et Langues */
+        .skills ul, .languages ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skills li, .languages li {
+            background: #e8f0fe;
+            color: #0a66c2;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: background 0.3s, color 0.3s, transform 0.3s;
+        }
+        .skills li:hover, .languages li:hover {
+            transform: scale(1.05);
+        }
+        body.dark .skills li, body.dark .languages li {
+            background: #4a5568;
+            color: #63b3ed;
+        }
+        /* CTA Final */
+        .cta-final {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #0a66c2 0%, #004182 100%);
+            color: #fff;
+            border-radius: 0 0 15px 15px;
+            transition: background 0.3s;
+        }
+        body.dark .cta-final {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+        }
+        .cta-final h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        .cta-final p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        .cta-final a {
+            background: #f5c518;
+            color: #333;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+        .cta-final a:hover {
+            background: #d4a017;
+            transform: scale(1.05);
+        }
+        /* Language Sections */
         .lang-fr, .lang-en {
             display: none;
         }
         .lang-fr.active, .lang-en.active {
             display: block;
         }
-        .hashtags span {
-            color: #0a66c2;
-            margin-right: 5px;
-        }
-        body.dark .hashtags span {
-            color: #63b3ed;
-        }
-
-        /* Simulateur QA */
-        #qa-simulator, #qa-simulator-en {
-            padding: 40px 30px;
-        }
-        .simulator-form select, .simulator-form button {
-            padding: 10px;
-            margin: 5px 0;
-            width: 100%;
-            max-width: 300px;
-        }
-        .simulator-result {
-            margin-top: 20px;
-            padding: 15px;
-            background: #e2e8f0;
-            border-radius: 5px;
-        }
-        body.dark .simulator-result {
-            background: #4a5568;
-        }
-
-        /* Générateur de Rapport QA */
-        #qa-report, #qa-report-en {
-            padding: 40px 30px;
-        }
-        .report-form input, .report-form select, .report-form button {
-            padding: 10px;
-            margin: 5px 0;
-            width: 100%;
-            max-width: 300px;
-        }
-        .report-result {
-            margin-top: 20px;
-            padding: 15px;
-            background: #e2e8f0;
-            border-radius: 5px;
-        }
-        body.dark .report-result {
-            background: #4a5568;
-        }
-
-        /* Carte thermique des compétences */
-        #competences, #skills {
-            padding: 40px 30px;
-        }
-        .heatmap {
+        /* Education Item */
+        .education-item {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
         }
-        .heatmap-item {
-            width: 120px;
-            height: 80px;
-            background: #e2e8f0;
-            border-radius: 5px;
+        .cert-logo {
+            width: 50px;
+            height: auto;
+            transition: transform 0.3s;
+        }
+        .cert-logo:hover {
+            transform: scale(1.1);
+        }
+        body.dark .education-item .cert-logo {
+            filter: none;
+        }
+        /* Bouton Retour en haut */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0a66c2;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
             cursor: pointer;
-            transition: background 0.3s;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, background 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
-        body.dark .heatmap-item {
-            background: #4a5568;
+        #back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
-        .heatmap-item:hover {
-            background: #0a66c2;
-            color: #fff;
+        #back-to-top:hover {
+            background: #f5c518;
+            color: #333;
         }
-        body.dark .heatmap-item:hover {
+        body.dark #back-to-top {
             background: #63b3ed;
+        }
+        /* Barre de progression */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: #f5c518;
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.2em;
+            }
+            .header .language-toggle button {
+                padding: 4px 8px;
+                font-size: 0.8em;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                top: 60px;
+                padding: 15px;
+                overflow-y: visible;
+            }
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding-top: 120px;
+            }
+            .hero h1 {
+                font-size: 1.8em;
+            }
+            .section {
+                padding: 20px;
+            }
+            .job {
+                flex-direction: column;
+            }
+            .job figure {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .education-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .cert-logo {
+                margin-bottom: 10px;
+            }
+            .about-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
@@ -170,23 +599,52 @@
         </div>
     </div>
 
+    <!-- Barre de progression -->
+    <div id="progress-bar"></div>
+
+    <!-- Fond animé -->
+    <div class="particles"></div>
+
     <!-- Sidebar -->
     <div class="sidebar">
-        <img src="images/photo2.png" alt="Photo de profil de Jahangir Thasin" style="width: 100%; border-radius: 50%;">
+        <img src="images/photo2.png" alt="Photo de profil de Jahangir Thasin" class="profile-pic">
         <h1>Jahangir Thasin</h1>
         <p id="sidebar-title-fr" class="lang-fr active">Expert en Tests Logiciels</p>
         <p id="sidebar-title-en" class="lang-en">Software Testing Expert</p>
         <div class="contact">
-            <p><a href="tel:+33673563266">06 73 56 32 66</a></p>
-            <p><a href="mailto:thasin@live.com">thasin@live.com</a></p>
-            <p><a href="https://www.linkedin.com/in/thasin-j-47582635" target="_blank">LinkedIn</a></p>
+            <p>
+                <a href="tel:+33673563266" aria-label="Appeler Jahangir Thasin">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    06 73 56 32 66
+                </a>
+            </p>
+            <p>
+                <a href="mailto:thasin@live.com" aria-label="Envoyer un email à Jahangir Thasin">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    thasin@live.com
+                </a>
+            </p>
+            <p>
+                <a href="https://www.linkedin.com/in/thasin-j-47582635" target="_blank" aria-label="Visiter le profil LinkedIn de Jahangir Thasin">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    LinkedIn
+                </a>
+            </p>
         </div>
         <div class="nav-links">
             <div class="lang-fr active">
                 <a href="#apropos">À Propos</a>
                 <a href="#experiences">Expériences</a>
-                <a href="#qa-simulator">Simulateur QA</a>
-                <a href="#qa-report">Rapport QA</a>
+                <a href="#projets">Projets</a>
                 <a href="#competences">Compétences</a>
                 <a href="#formations">Formations</a>
                 <a href="#langues">Langues</a>
@@ -194,12 +652,18 @@
             <div class="lang-en">
                 <a href="#about">About Me</a>
                 <a href="#experience">Experience</a>
-                <a href="#qa-simulator-en">QA Simulator</a>
-                <a href="#qa-report-en">QA Report</a>
+                <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
                 <a href="#education">Education</a>
                 <a href="#languages">Languages</a>
             </div>
+        </div>
+        <div class="theme-toggle">
+            <button id="theme-toggle" aria-label="Activer ou désactiver le mode sombre">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
         </div>
     </div>
 
@@ -220,180 +684,586 @@
             <!-- À Propos (French) -->
             <div id="apropos" class="section lang-fr active">
                 <h2>À Propos</h2>
-                <p>Avec 12 ans d’expérience dans les tests logiciels, je suis spécialisé dans les tests fonctionnels, de non-régression et l’automatisation. Certifié Professional Scrum Product Owner et ISTQB, j’ai collaboré avec des leaders comme BRED, Accor Hôtels, Visiodent, Oodrive, Vinci Construction et Profil Technology pour garantir des logiciels fiables et performants.</p>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Avec 12 ans d’expérience dans les tests logiciels, je suis spécialisé dans les tests fonctionnels, de non-régression et l’automatisation. Certifié Professional Scrum Product Owner et ISTQB, j’ai collaboré avec des leaders comme BRED, Accor Hôtels, Visiodent, Oodrive, Vinci Construction et Profil Technology pour garantir des logiciels fiables et performants.</p>
+                    </div>
+                    <div class="about-badges">
+                        <a href="https://www.scrum.org/certifications/professional-scrum-product-owner" target="_blank" aria-label="Certification Professional Scrum Product Owner">
+                            <img src="images/pspo-logo.png" alt="Certification Professional Scrum Product Owner" class="badge">
+                        </a>
+                        <a href="https://www.istqb.org/" target="_blank" aria-label="Certification ISTQB">
+                            <img src="images/istqb-logo.png" alt="Certification ISTQB" class="badge">
+                        </a>
+                    </div>
+                </div>
             </div>
             <!-- About Me (English) -->
             <div id="about" class="section lang-en">
                 <h2>About Me</h2>
-                <p>With 12 years of experience in software testing, I specialize in functional testing, non-regression testing, and automation. Certified as a Professional Scrum Product Owner and ISTQB, I have collaborated with industry leaders such as BRED, Accor Hotels, Visiodent, Oodrive, Vinci Construction, and Profil Technology to ensure reliable and high-performing software.</p>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>With 12 years of experience in software testing, I specialize in functional testing, non-regression testing, and automation. Certified as a Professional Scrum Product Owner and ISTQB, I have collaborated with industry leaders such as BRED, Accor Hotels, Visiodent, Oodrive, Vinci Construction, and Profil Technology to ensure reliable and high-performing software.</p>
+                    </div>
+                    <div class="about-badges">
+                        <a href="https://www.scrum.org/certifications/professional-scrum-product-owner" target="_blank" aria-label="Professional Scrum Product Owner Certification">
+                            <img src="images/pspo-logo.png" alt="Professional Scrum Product Owner Certification" class="badge">
+                        </a>
+                        <a href="https://www.istqb.org/" target="_blank" aria-label="ISTQB Certification">
+                            <img src="images/istqb-logo.png" alt="ISTQB Certification" class="badge">
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Expériences (French) -->
             <div id="experiences" class="section lang-fr active">
                 <h2>Expériences Professionnelles</h2>
                 <div class="job">
-                    <h3>Consultant Ingénieur Qualité - BRED Banque Populaire</h3>
-                    <p><strong>04/2023 – Aujourd’hui</strong> | Joinville-le-Pont</p>
-                    <p>Projet : Mise en place d’un nouveau système de facturation électronique</p>
-                    <ul>
-                        <li>Participation aux rituels Agile</li>
-                        <li>Conception et exécution des tests fonctionnels</li>
-                        <li>Rapports sur l’avancement et la qualité</li>
-                    </ul>
-                    <p><strong>Outils :</strong> <span class="hashtags">
-                        <span>#JIRA</span> <span>#Xray</span> <span>#SQL</span>
-                    </span></p>
+                    <figure>
+                        <img src="images/bred-logo.png" alt="Logo de BRED Banque Populaire" class="logo">
+                        <figcaption>Logo de BRED Banque Populaire</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>Consultant Ingénieur Qualité - BRED Banque Populaire</h3>
+                        <p><strong>04/2023 – Aujourd’hui</strong> | Joinville-le-Pont</p>
+                        <p>Contexte : Service DSI</p>
+                        <p>Projet : Mise en place d’un nouveau système de facturation électronique</p>
+                        <ul>
+                            <li>Participation active aux rituels Agile pour garantir une collaboration optimale</li>
+                            <li>Conception et définition des tests pour une couverture fonctionnelle complète</li>
+                            <li>Exécution des tests fonctionnels et de non-régression</li>
+                            <li>Élaboration de rapports détaillés sur l’avancement et la qualité</li>
+                        </ul>
+                        <p><strong>Outils :</strong> <span class="hashtags">
+                            <a href="https://fr.wikipedia.org/wiki/Jira_(logiciel)" target="_blank" aria-label="En savoir plus sur JIRA">#JIRA</a>
+                            <span>#Xray</span>
+                            <span>#AIS</span>
+                            <span>#RDJ</span>
+                            <a href="https://fr.wikipedia.org/wiki/SQL" target="_blank" aria-label="En savoir plus sur SQL">#SQL</a>
+                            <a href="https://fr.wikipedia.org/wiki/Oracle_Database" target="_blank" aria-label="En savoir plus sur Oracle Database">#Oracle</a>
+                        </span></p>
+                    </div>
+                </div>
+                <div class="job">
+                    <figure>
+                        <img src="images/accor-logo.png" alt="Logo d’Accor Hôtels" class="logo">
+                        <figcaption>Logo d’Accor Hôtels</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>Consultant Ingénieur Qualité - Accor Hôtels</h3>
+                        <p><strong>09/2019 – 12/2022</strong> | Issy-les-Moulineaux</p>
+                        <p>Contexte : Leader mondial dans l’hôtellerie</p>
+                        <p>Projet : Application mobile ACCOR (Android et iOS)</p>
+                        <ul>
+                            <li>Participation aux rituels Agile (Daily, Sprint Planning, Review, Rétro)</li>
+                            <li>Co-écriture des User Stories avec le Product Owner et les développeurs</li>
+                            <li>Élaboration et mise en œuvre de stratégies de test</li>
+                            <li>Conception de cas de test en Gherkin</li>
+                            <li>Exécution des tests manuels et gestion de la recette fonctionnelle</li>
+                            <li>Création et suivi des tickets de bugs (JIRA)</li>
+                            <li>Tests de non-régression et participation aux réunions Go/No-Go</li>
+                        </ul>
+                        <p><strong>Outils :</strong> <span class="hashtags">
+                            <span>#iOS</span>
+                            <span>#Android</span>
+                            <a href="https://fr.wikipedia.org/wiki/Jira_(logiciel)" target="_blank" aria-label="En savoir plus sur JIRA">#JIRA</a>
+                            <span>#Xray</span>
+                            <span>#CharlesProxy</span>
+                            <span>#Confluence</span>
+                        </span></p>
+                    </div>
+                </div>
+                <div class="job">
+                    <figure>
+                        <img src="images/visiodent-logo.png" alt="Logo de Visiodent" class="logo">
+                        <figcaption>Logo de Visiodent</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>Responsable Qualité Logiciel - Visiodent</h3>
+                        <p><strong>06/2019 – 09/2019</strong></p>
+                        <p>Contexte : Éditeur de logiciels pour professionnels de la santé</p>
+                        <p>Périmètres : Applications Web</p>
+                        <ul>
+                            <li>Management d’une équipe de testeurs</li>
+                            <li>Pilotage de l’automatisation des tests (produit Veasy)</li>
+                            <li>Rédaction des scénarios et stratégies de test</li>
+                            <li>Conception des plans de tests (fonctionnels et non-régressions)</li>
+                            <li>Reporting sur la qualité</li>
+                        </ul>
+                        <p><strong>Outils :</strong> <span class="hashtags">
+                            <span>#Tuleap</span>
+                            <span>#Excel</span>
+                            <span>#Dynatrace</span>
+                        </span></p>
+                    </div>
+                </div>
+                <div class="job">
+                    <figure>
+                        <img src="images/oodrive-logo.png" alt="Logo d’Oodrive" class="logo">
+                        <figcaption>Logo d’Oodrive</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>Ingénieur Qualité Logiciel - Oodrive</h3>
+                        <p><strong>01/2017 – 04/2019</strong> | Paris</p>
+                        <p>Contexte : Responsable qualité pour le pôle "clients lourds"</p>
+                        <p>Périmètres : Windows, Mac OS, Nutanix, Hyper</p>
+                        <ul>
+                            <li>Élaboration des plans de tests</li>
+                            <li>Exécution des tests fonctionnels et non-fonctionnels</li>
+                            <li>Tests de portabilité et suivi des tests automatisés (Ranorex)</li>
+                            <li>Support Niveau 3</li>
+                        </ul>
+                        <p><strong>Outils :</strong> <span class="hashtags">
+                            <a href="https://fr.wikipedia.org/wiki/Jira_(logiciel)" target="_blank" aria-label="En savoir plus sur JIRA">#JIRA</a>
+                            <span>#Zephyr</span>
+                            <span>#Confluence</span>
+                            <span>#Ranorex</span>
+                        </span></p>
+                    </div>
+                </div>
+                <div class="job">
+                    <figure>
+                        <img src="images/vinci-logo.png" alt="Logo de Vinci Construction" class="logo">
+                        <figcaption>Logo de Vinci Construction</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>Consultant Ingénieur Qualité - Vinci Construction</h3>
+                        <p><strong>10/2016 – 01/2017</strong></p>
+                        <p>Contexte : Développement de centres d’expertise interconnectés</p>
+                        <p>Périmètres : Applications Web (SAP BPC)</p>
+                        <ul>
+                            <li>Exécution de la recette fonctionnelle</li>
+                            <li>Création et modification des cas de test</li>
+                            <li>Vérification de l’ergonomie et de la qualité des données</li>
+                        </ul>
+                        <p><strong>Outils :</strong> <span class="hashtags">
+                            <span>#Redmine</span>
+                        </span></p>
+                    </div>
+                </div>
+                <div class="job">
+                    <figure>
+                        <img src="images/profil-technology-logo.png" alt="Logo de Profil Technology" class="logo">
+                        <figcaption>Logo de Profil Technology</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>Ingénieur Tests Logiciels - Profil Technology</h3>
+                        <p><strong>01/2013 – 09/2016</strong> | Montrouge</p>
+                        <p>Contexte : Éditeur de logiciels (Witigo Parental Filter)</p>
+                        <p>Périmètres : Windows, Mac OS, Ubuntu, Android, iOS</p>
+                        <ul>
+                            <li>Mise en place des plateformes de test</li>
+                            <li>Bug tracking avec Flyspray</li>
+                            <li>Conception et exécution des tests fonctionnels et de non-régression</li>
+                            <li>Automatisation avec AutoIT</li>
+                            <li>Support client et rédaction de FAQ</li>
+                        </ul>
+                        <p><strong>Outils :</strong> <span class="hashtags">
+                            <span>#Flyspray</span>
+                            <span>#AutoIT</span>
+                        </span></p>
+                    </div>
+                </div>
+                <div class="job">
+                    <figure>
+                        <img src="images/profil-technology-logo.png" alt="Logo de Profil Technology" class="logo">
+                        <figcaption>Logo de Profil Technology</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>Ingénieur Support Niveau 3, Testeur - Profil Technology</h3>
+                        <p><strong>01/2011 – 01/2013</strong> | Montrouge</p>
+                        <p>Contexte : Beta testing pour Bitdefender et proxy WebFilter</p>
+                        <ul>
+                            <li>Support Niveau 3, analyses et désinfections des machines</li>
+                            <li>Mise en place d’un labo de test pour analyser les infections et vulnérabilités</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <!-- Experience (English) -->
             <div id="experience" class="section lang-en">
                 <h2>Professional Experience</h2>
                 <div class="job">
-                    <h3>Software Quality Engineer Consultant - BRED Banque Populaire</h3>
-                    <p><strong>04/2023 – Present</strong> | Joinville-le-Pont</p>
-                    <p>Project: Implementation of a new electronic invoicing system</p>
-                    <ul>
-                        <li>Participation in Agile rituals</li>
-                        <li>Design and execution of functional tests</li>
-                        <li>Reports on progress and quality</li>
-                    </ul>
-                    <p><strong>Tools:</strong> <span class="hashtags">
-                        <span>#JIRA</span> <span>#Xray</span> <span>#SQL</span>
-                    </span></p>
+                    <figure>
+                        <img src="images/bred-logo.png" alt="Logo of BRED Banque Populaire" class="logo">
+                        <figcaption>Logo of BRED Banque Populaire</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>Software Quality Engineer Consultant - BRED Banque Populaire</h3>
+                        <p><strong>04/2023 – Present</strong> | Joinville-le-Pont</p>
+                        <p>Context: IT Department</p>
+                        <p>Project: Implementation of a new electronic invoicing system</p>
+                        <ul>
+                            <li>Active participation in Agile rituals to ensure optimal collaboration</li>
+                            <li>Design and definition of tests for complete functional coverage</li>
+                            <li>Execution of functional and non-regression tests</li>
+                            <li>Preparation of detailed reports on progress and quality</li>
+                        </ul>
+                        <p><strong>Tools:</strong> <span class="hashtags">
+                            <a href="https://en.wikipedia.org/wiki/Jira_(software)" target="_blank" aria-label="Learn more about JIRA">#JIRA</a>
+                            <span>#Xray</span>
+                            <span>#AIS</span>
+                            <span>#RDJ</span>
+                            <a href="https://en.wikipedia.org/wiki/SQL" target="_blank" aria-label="Learn more about SQL">#SQL</a>
+                            <a href="https://en.wikipedia.org/wiki/Oracle_Database" target="_blank" aria-label="Learn more about Oracle Database">#Oracle</a>
+                        </span></p>
+                    </div>
+                </div>
+                <div class="job">
+                    <figure>
+                        <img src="images/accor-logo.png" alt="Logo of Accor Hotels" class="logo">
+                        <figcaption>Logo of Accor Hotels</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>Software Quality Engineer Consultant - Accor Hotels</h3>
+                        <p><strong>09/2019 – 12/2022</strong> | Issy-les-Moulineaux</p>
+                        <p>Context: Global leader in hospitality</p>
+                        <p>Project: ACCOR mobile application (Android and iOS)</p>
+                        <ul>
+                            <li>Participation in Agile rituals (Daily, Sprint Planning, Review, Retro)</li>
+                            <li>Co-writing User Stories with the Product Owner and developers</li>
+                            <li>Development and implementation of test strategies</li>
+                            <li>Design of test cases in Gherkin</li>
+                            <li>Execution of manual tests and management of functional acceptance</li>
+                            <li>Creation and tracking of bug tickets (JIRA)</li>
+                            <li>Non-regression testing and participation in Go/No-Go meetings</li>
+                        </ul>
+                        <p><strong>Tools:</strong> <span class="hashtags">
+                            <span>#iOS</span>
+                            <span>#Android</span>
+                            <a href="https://en.wikipedia.org/wiki/Jira_(software)" target="_blank" aria-label="Learn more about JIRA">#JIRA</a>
+                            <span>#Xray</span>
+                            <span>#CharlesProxy</span>
+                            <span>#Confluence</span>
+                        </span></p>
+                    </div>
+                </div>
+                <div class="job">
+                    <figure>
+                        <img src="images/visiodent-logo.png" alt="Logo of Visiodent" class="logo">
+                        <figcaption>Logo of Visiodent</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>Software Quality Manager - Visiodent</h3>
+                        <p><strong>06/2019 – 09/2019</strong></p>
+                        <p>Context: Software publisher for healthcare professionals</p>
+                        <p>Scope: Web applications</p>
+                        <ul>
+                            <li>Management of a team of testers</li>
+                            <li>Supervision of test automation (Veasy product)</li>
+                            <li>Writing test scenarios and strategies</li>
+                            <li>Design of test plans (functional and non-regression)</li>
+                            <li>Quality reporting</li>
+                        </ul>
+                        <p><strong>Tools:</strong> <span class="hashtags">
+                            <span>#Tuleap</span>
+                            <span>#Excel</span>
+                            <span>#Dynatrace</span>
+                        </span></p>
+                    </div>
+                </div>
+                <div class="job">
+                    <figure>
+                        <img src="images/oodrive-logo.png" alt="Logo of Oodrive" class="logo">
+                        <figcaption>Logo of Oodrive</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>Software Quality Engineer - Oodrive</h3>
+                        <p><strong>01/2017 – 04/2019</strong> | Paris</p>
+                        <p>Context: Quality lead for the "desktop clients" team</p>
+                        <p>Scope: Windows, Mac OS, Nutanix, Hyper</p>
+                        <ul>
+                            <li>Development of test plans</li>
+                            <li>Execution of functional and non-functional tests</li>
+                            <li>Portability testing and monitoring of automated tests (Ranorex)</li>
+                            <li>Level 3 support</li>
+                        </ul>
+                        <p><strong>Tools:</strong> <span class="hashtags">
+                            <a href="https://en.wikipedia.org/wiki/Jira_(software)" target="_blank" aria-label="Learn more about JIRA">#JIRA</a>
+                            <span>#Zephyr</span>
+                            <span>#Confluence</span>
+                            <span>#Ranorex</span>
+                        </span></p>
+                    </div>
+                </div>
+                <div class="job">
+                    <figure>
+                        <img src="images/vinci-logo.png" alt="Logo of Vinci Construction" class="logo">
+                        <figcaption>Logo of Vinci Construction</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>Software Quality Engineer Consultant - Vinci Construction</h3>
+                        <p><strong>10/2016 – 01/2017</strong></p>
+                        <p>Context: Development of interconnected expertise centers</p>
+                        <p>Scope: Web applications (SAP BPC)</p>
+                        <ul>
+                            <li>Execution of functional acceptance testing</li>
+                            <li>Creation and modification of test cases</li>
+                            <li>Verification of ergonomics and data quality</li>
+                        </ul>
+                        <p><strong>Tools:</strong> <span class="hashtags">
+                            <span>#Redmine</span>
+                        </span></p>
+                    </div>
+                </div>
+                <div class="job">
+                    <figure>
+                        <img src="images/profil-technology-logo.png" alt="Logo of Profil Technology" class="logo">
+                        <figcaption>Logo of Profil Technology</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>Software Test Engineer - Profil Technology</h3>
+                        <p><strong>01/2013 – 09/2016</strong> | Montrouge</p>
+                        <p>Context: Software publisher (Witigo Parental Filter)</p>
+                        <p>Scope: Windows, Mac OS, Ubuntu, Android, iOS</p>
+                        <ul>
+                            <li>Setup of testing platforms</li>
+                            <li>Bug tracking with Flyspray</li>
+                            <li>Design and execution of functional and non-regression tests</li>
+                            <li>Automation with AutoIT</li>
+                            <li>Customer support and FAQ writing</li>
+                        </ul>
+                        <p><strong>Tools:</strong> <span class="hashtags">
+                            <span>#Flyspray</span>
+                            <span>#AutoIT</span>
+                        </span></p>
+                    </div>
+                </div>
+                <div class="job">
+                    <figure>
+                        <img src="images/profil-technology-logo.png" alt="Logo of Profil Technology" class="logo">
+                        <figcaption>Logo of Profil Technology</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>Level 3 Support Engineer, Tester - Profil Technology</h3>
+                        <p><strong>01/2011 – 01/2013</strong> | Montrouge</p>
+                        <p>Context: Beta testing for Bitdefender and WebFilter proxy</p>
+                        <ul>
+                            <li>Level 3 support, analysis, and disinfection of machines</li>
+                            <li>Setup of a test lab to analyze infections and vulnerabilities</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <!-- Simulateur QA (French) -->
-            <div id="qa-simulator" class="section lang-fr active">
-                <h2>Simulateur QA</h2>
-                <p>Testez un workflow QA en choisissant vos options :</p>
-                <div class="simulator-form">
-                    <select id="test-type-fr">
-                        <option value="fonctionnel">Tests Fonctionnels</option>
-                        <option value="automatisé">Tests Automatisés</option>
-                        <option value="non-regression">Non-Régression</option>
-                    </select>
-                    <select id="tool-fr">
-                        <option value="jira">JIRA</option>
-                        <option value="xray">Xray</option>
-                        <option value="appium">Appium</option>
-                    </select>
-                    <button onclick="runQASimulator('fr')">Lancer la Simulation</button>
+        
+            <!-- Projects (English) -->
+            <div id="projects" class="section lang-en">
+                <h2>Notable Projects</h2>
+                <div class="job">
+                    <figure>
+                        <img src="images/project-icon.png" alt="Project Icon" class="logo">
+                        <figcaption>Project Icon</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>New Electronic Invoicing System - BRED</h3>
+                        <p><strong>2023</strong></p>
+                        <p>Implemented an electronic invoicing system for BRED Banque Populaire, focusing on quality and compliance.</p>
+                        <p><strong>Tools:</strong> <span class="hashtags">
+                            <a href="https://en.wikipedia.org/wiki/Jira_(software)" target="_blank" aria-label="Learn more about JIRA">#JIRA</a>
+                            <span>#Xray</span>
+                            <a href="https://en.wikipedia.org/wiki/SQL" target="_blank" aria-label="Learn more about SQL">#SQL</a>
+                        </span></p>
+                    </div>
                 </div>
-                <div id="simulator-result-fr" class="simulator-result"></div>
-            </div>
-            <!-- QA Simulator (English) -->
-            <div id="qa-simulator-en" class="section lang-en">
-                <h2>QA Simulator</h2>
-                <p>Test a QA workflow by choosing your options:</p>
-                <div class="simulator-form">
-                    <select id="test-type-en">
-                        <option value="functional">Functional Tests</option>
-                        <option value="automated">Automated Tests</option>
-                        <option value="non-regression">Non-Regression</option>
-                    </select>
-                    <select id="tool-en">
-                        <option value="jira">JIRA</option>
-                        <option value="xray">Xray</option>
-                        <option value="appium">Appium</option>
-                    </select>
-                    <button onclick="runQASimulator('en')">Run Simulation</button>
+                <div class="job">
+                    <figure>
+                        <img src="images/project-icon.png" alt="Project Icon" class="logo">
+                        <figcaption>Project Icon</figcaption>
+                    </figure>
+                    <div class="content">
+                        <h3>ACCOR Mobile Application</h3>
+                        <p><strong>2019-2022</strong></p>
+                        <p>Contributed to the quality of Accor Hotels’ mobile app, with functional and non-regression testing on Android and iOS.</p>
+                        <p><strong>Tools:</strong> <span class="hashtags">
+                            <a href="https://en.wikipedia.org/wiki/Jira_(software)" target="_blank" aria-label="Learn more about JIRA">#JIRA</a>
+                            <span>#Xray</span>
+                            <span>#CharlesProxy</span>
+                        </span></p>
+                    </div>
                 </div>
-                <div id="simulator-result-en" class="simulator-result"></div>
-            </div>
-
-            <!-- Générateur de Rapport QA (French) -->
-            <div id="qa-report" class="section lang-fr active">
-                <h2>Générateur de Rapport QA</h2>
-                <p>Obtenez un rapport QA personnalisé :</p>
-                <div class="report-form">
-                    <input type="text" id="team-size-fr" placeholder="Taille de l'équipe">
-                    <select id="app-type-fr">
-                        <option value="web">Application Web</option>
-                        <option value="mobile">Application Mobile</option>
-                        <option value="desktop">Application Desktop</option>
-                    </select>
-                    <button onclick="generateQAReport('fr')">Générer le Rapport</button>
-                </div>
-                <div id="report-result-fr" class="report-result"></div>
-            </div>
-            <!-- QA Report Generator (English) -->
-            <div id="qa-report-en" class="section lang-en">
-                <h2>QA Report Generator</h2>
-                <p>Get a personalized QA report:</p>
-                <div class="report-form">
-                    <input type="text" id="team-size-en" placeholder="Team Size">
-                    <select id="app-type-en">
-                        <option value="web">Web Application</option>
-                        <option value="mobile">Mobile Application</option>
-                        <option value="desktop">Desktop Application</option>
-                    </select>
-                    <button onclick="generateQAReport('en')">Generate Report</button>
-                </div>
-                <div id="report-result-en" class="report-result"></div>
             </div>
 
             <!-- Compétences Techniques (French) -->
-            <div id="competences" class="section lang-fr active">
+            <div id="competences" class="section skills lang-fr active">
                 <h2>Compétences Techniques</h2>
-                <div class="heatmap">
-                    <div class="heatmap-item" onmouseover="showSkillDetail('fr', 'Agile Scrum')">Agile Scrum</div>
-                    <div class="heatmap-item" onmouseover="showSkillDetail('fr', 'JIRA')">JIRA</div>
-                    <div class="heatmap-item" onmouseover="showSkillDetail('fr', 'Tests Automatisés')">Tests Automatisés</div>
-                    <div class="heatmap-item" onmouseover="showSkillDetail('fr', 'SQL')">SQL</div>
-                </div>
-                <div id="skill-detail-fr"></div>
+                <ul>
+                    <li>Méthodologie : Agile Scrum</li>
+                    <li>Gestion de projet : Confluence, JIRA, RedMine</li>
+                    <li>Tests : XRAY, TestRail, Gherkin, Appium</li>
+                    <li>Bases de données : SQL</li>
+                    <li>Analyse et suivi : BrowserStack, Crashlytics, Charles Proxy, Service Now</li>
+                    <li>Design : Figma</li>
+                    <li>Plateformes : Android, iOS, Web, Windows, Mac OS, Virtual Machines</li>
+                </ul>
             </div>
             <!-- Technical Skills (English) -->
-            <div id="skills" class="section lang-en">
+            <div id="skills" class="section skills lang-en">
                 <h2>Technical Skills</h2>
-                <div class="heatmap">
-                    <div class="heatmap-item" onmouseover="showSkillDetail('en', 'Agile Scrum')">Agile Scrum</div>
-                    <div class="heatmap-item" onmouseover="showSkillDetail('en', 'JIRA')">JIRA</div>
-                    <div class="heatmap-item" onmouseover="showSkillDetail('en', 'Automated Testing')">Automated Testing</div>
-                    <div class="heatmap-item" onmouseover="showSkillDetail('en', 'SQL')">SQL</div>
-                </div>
-                <div id="skill-detail-en"></div>
+                <ul>
+                    <li>Methodology: Agile Scrum</li>
+                    <li>Project Management: Confluence, JIRA, RedMine</li>
+                    <li>Testing: XRAY, TestRail, Gherkin, Appium</li>
+                    <li>Databases: SQL</li>
+                    <li>Analysis & Monitoring: BrowserStack, Crashlytics, Charles Proxy, Service Now</li>
+                    <li>Design: Figma</li>
+                    <li>Platforms: Android, iOS, Web, Windows, Mac OS, Virtual Machines</li>
+                </ul>
+            </div>
+
+            <!-- Domaines de Compétences (French) -->
+            <div class="section lang-fr active">
+                <h2>Domaines de Compétences</h2>
+                <ul>
+                    <li>Méthodologie Agile : Mise en œuvre et animation de processus Agile</li>
+                    <li>Esprit d’équipe : Renforcement de la cohésion et du travail collaboratif</li>
+                    <li>Attention aux détails : Identification des petites erreurs ou anomalies</li>
+                    <li>Communication efficace : Transmission claire des informations</li>
+                    <li>Co-écriture des User Stories : Approche 3 amigos (PO, Dev, QA)</li>
+                    <li>Stratégie de Tests : Planification et critères d’acceptation</li>
+                    <li>Tests de Non-Régression : Stabilité des fonctionnalités après itérations</li>
+                    <li>Recette Continue : Feedback rapide et ajustements proactifs</li>
+                    <li>Suivi de la Qualité : Supervision et évaluation de la qualité</li>
+                    <li>Reporting : Rapports clairs pour la prise de décision</li>
+                    <li>Gestion des Bugs : Priorisation et résolution efficace</li>
+                </ul>
+            </div>
+            <!-- Areas of Expertise (English) -->
+            <div class="section lang-en">
+                <h2>Areas of Expertise</h2>
+                <ul>
+                    <li>Agile Methodology: Implementation and facilitation of Agile processes</li>
+                    <li>Team Spirit: Strengthening cohesion and collaborative work</li>
+                    <li>Attention to Detail: Identifying small errors or anomalies</li>
+                    <li>Effective Communication: Clear transmission of information</li>
+                    <li>Co-writing User Stories: 3 Amigos approach (PO, Dev, QA)</li>
+                    <li>Test Strategy: Planning and acceptance criteria</li>
+                    <li>Non-Regression Testing: Ensuring feature stability after iterations</li>
+                    <li>Continuous Acceptance: Rapid feedback and proactive adjustments</li>
+                    <li>Quality Monitoring: Oversight and evaluation of quality</li>
+                    <li>Reporting: Clear reports for decision-making</li>
+                    <li>Bug Management: Prioritization and efficient resolution</li>
+                </ul>
             </div>
 
             <!-- Formations (French) -->
             <div id="formations" class="section lang-fr active">
                 <h2>Formations</h2>
-                <p><strong>2020</strong> - Certification Professional Scrum Product Owner | Scrum.org</p>
-                <p><strong>2015</strong> - Formation ISTQB | Learning Tree International</p>
+                <div class="education">
+                    <div class="education-item">
+                        <img src="images/pspo-logo.png" alt="Certification Professional Scrum Product Owner" class="cert-logo">
+                        <div>
+                            <h3>Certification Professional Scrum Product Owner</h3>
+                            <p><strong>2020</strong> | Scrum.org</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="education">
+                    <div class="education-item">
+                        <img src="images/istqb-logo.png" alt="Certification ISTQB" class="cert-logo">
+                        <div>
+                            <h3>Formation ISTQB</h3>
+                            <p><strong>2015</strong> | Learning Tree International</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="education">
+                    <div class="education-item">
+                        <img src="images/imesg-logo.png" alt="Formation Administrateur de Sécurité" class="cert-logo">
+                        <div>
+                            <h3>Formation Administrateur de Sécurité</h3>
+                            <p><strong>2006</strong></p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- Education (English) -->
             <div id="education" class="section lang-en">
                 <h2>Education</h2>
-                <p><strong>2020</strong> - Professional Scrum Product Owner Certification | Scrum.org</p>
-                <p><strong>2015</strong> - ISTQB Training | Learning Tree International</p>
+                <div class="education">
+                    <div class="education-item">
+                        <img src="images/pspo-logo.png" alt="Professional Scrum Product Owner Certification" class="cert-logo">
+                        <div>
+                            <h3>Professional Scrum Product Owner Certification</h3>
+                            <p><strong>2020</strong> | Scrum.org</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="education">
+                    <div class="education-item">
+                        <img src="images/istqb-logo.png" alt="ISTQB Certification" class="cert-logo">
+                        <div>
+                            <h3>ISTQB Training</h3>
+                            <p><strong>2015</strong> | Learning Tree International</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="education">
+                    <div class="education-item">
+                        <img src="images/imesg-logo.png" alt="Security Administrator Training" class="cert-logo">
+                        <div>
+                            <h3>Security Administrator Training</h3>
+                            <p><strong>2006</strong></p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Langues (French) -->
-            <div id="langues" class="section lang-fr active">
+            <div id="langues" class="section languages lang-fr active">
                 <h2>Langues Parlées</h2>
                 <ul>
                     <li>Français - Natif</li>
-                    <li>Anglais - Bon niveau</li>
+                    <li>Anglais - Bon niveau écrit et parlé</li>
+                    <li>Espagnol - Bon niveau écrit et parlé</li>
+                    <li>Bengali - Courant</li>
                 </ul>
             </div>
             <!-- Languages (English) -->
-            <div id="languages" class="section lang-en">
+            <div id="languages" class="section languages lang-en">
                 <h2>Languages</h2>
                 <ul>
                     <li>French - Native</li>
-                    <li>English - Proficient</li>
+                    <li>English - Proficient in writing and speaking</li>
+                    <li>Spanish - Proficient in writing and speaking</li>
+                    <li>Bengali - Fluent</li>
                 </ul>
+            </div>
+
+            <!-- CTA Final (French) -->
+            <div class="cta-final lang-fr active">
+                <h2>Prêt à booster la qualité de vos logiciels ?</h2>
+                <p>Contactez-moi dès aujourd’hui !</p>
+                <a href="mailto:thasin@live.com">Envoyer un email</a>
+            </div>
+            <!-- CTA Final (English) -->
+            <div class="cta-final lang-en">
+                <h2>Ready to Boost Your Software Quality?</h2>
+                <p>Contact me today!</p>
+                <a href="mailto:thasin@live.com">Send an Email</a>
             </div>
         </div>
     </div>
 
+    <!-- Bouton Retour en haut -->
+    <button id="back-to-top" aria-label="Retour en haut de la page">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7"></path>
+        </svg>
+    </button>
+
     <!-- JavaScript -->
     <script>
-        // Gestion de la langue
+        // Fonction pour gérer le changement de langue
         function setLanguage(lang) {
-            document.querySelectorAll('.lang-fr, .lang-en').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll(`.lang-${lang}`).forEach(el => el.classList.add('active'));
+            document.querySelectorAll('.lang-fr, .lang-en').forEach(element => {
+                element.classList.remove('active');
+            });
+            document.querySelectorAll(`.lang-${lang}`).forEach(element => {
+                element.classList.add('active');
+            });
+
             document.getElementById('lang-fr').classList.toggle('active', lang === 'fr');
             document.getElementById('lang-en').classList.toggle('active', lang === 'en');
         }
@@ -402,61 +1272,46 @@
         document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
 
         // Mode sombre
-        document.body.classList.add('dark');
-        window.addEventListener('click', () => document.body.classList.toggle('dark'));
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark');
+        });
 
         // Animations au défilement
         const sections = document.querySelectorAll('.section');
-        const observer = new IntersectionObserver(entries => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
         }, { threshold: 0.1 });
-        sections.forEach(section => observer.observe(section));
 
-        // Simulateur QA
-        function runQASimulator(lang) {
-            const testType = document.getElementById(`test-type-${lang}`).value;
-            const tool = document.getElementById(`tool-${lang}`).value;
-            const resultDiv = document.getElementById(`simulator-result-${lang}`);
-            const messages = {
-                fr: `Simulation lancée : ${testType} avec ${tool}. Résultat : 15 bugs détectés, 90% de couverture.`,
-                en: `Simulation run: ${testType} with ${tool}. Result: 15 bugs detected, 90% coverage.`
-            };
-            resultDiv.innerHTML = messages[lang];
-        }
+        sections.forEach(section => {
+            observer.observe(section);
+        });
 
-        // Générateur de Rapport QA
-        function generateQAReport(lang) {
-            const teamSize = document.getElementById(`team-size-${lang}`).value;
-            const appType = document.getElementById(`app-type-${lang}`).value;
-            const resultDiv = document.getElementById(`report-result-${lang}`);
-            const messages = {
-                fr: `Rapport QA : Pour une équipe de ${teamSize} sur une ${appType}, je recommande des tests fonctionnels avec JIRA et Xray. Temps estimé : 2 semaines.`,
-                en: `QA Report: For a team of ${teamSize} on a ${appType}, I recommend functional tests with JIRA and Xray. Estimated time: 2 weeks.`
-            };
-            resultDiv.innerHTML = messages[lang];
-        }
+        // Bouton Retour en haut
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
 
-        // Carte thermique des compétences
-        function showSkillDetail(lang, skill) {
-            const detailDiv = document.getElementById(`skill-detail-${lang}`);
-            const details = {
-                fr: {
-                    'Agile Scrum': 'Méthodologie utilisée dans 90% de mes projets.',
-                    'JIRA': 'Outil de gestion de projet et de suivi des bugs.',
-                    'Tests Automatisés': 'Expertise en automatisation avec Appium.',
-                    'SQL': 'Analyse de bases de données pour les tests.'
-                },
-                en: {
-                    'Agile Scrum': 'Methodology used in 90% of my projects.',
-                    'JIRA': 'Project management and bug tracking tool.',
-                    'Automated Testing': 'Expertise in automation with Appium.',
-                    'SQL': 'Database analysis for testing.'
-                }
-            };
-            detailDiv.innerHTML = `${skill} : ${details[lang][skill]}`;
-        }
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Barre de progression
+        const progressBar = document.getElementById('progress-bar');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
     </script>
 </body>
 </html>
