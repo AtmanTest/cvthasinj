@@ -364,32 +364,42 @@
             gap: 8px;
         }
         .hashtags a, .hashtags span {
-            background: linear-gradient(90deg, #00d4ff 0%, #d400ff 100%); /* Dégradé bleu clair/violet néon style Fast and Furious */
-            color: #fff; /* Texte blanc pour lisibilité */
+            color: #0a66c2; /* Couleur de secours pour les navigateurs ne supportant pas le dégradé */
             font-weight: 500;
             text-decoration: none;
             padding: 4px 8px;
             border-radius: 12px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
             display: inline-block;
             opacity: 0;
             animation: fadeInHashtag 0.5s ease forwards;
-            box-shadow: 0 0 8px rgba(0, 212, 255, 0.6), 0 0 12px rgba(212, 0, 255, 0.6); /* Effet néon glow */
+            /* Dégradé appliqué au texte */
+            background: linear-gradient(90deg, #00d4ff 0%, #d400ff 100%); /* Dégradé bleu clair/violet néon */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* Effet néon glow autour du texte */
+            text-shadow: 0 0 8px rgba(0, 212, 255, 0.6), 0 0 12px rgba(212, 0, 255, 0.6);
         }
         .hashtags a:hover {
-            background: linear-gradient(90deg, #00eaff 0%, #e100ff 100%); /* Dégradé légèrement plus clair au survol */
             transform: scale(1.1);
-            box-shadow: 0 0 12px rgba(0, 234, 255, 0.8), 0 0 20px rgba(225, 0, 255, 0.8); /* Glow néon plus intense au survol */
+            background: linear-gradient(90deg, #00eaff 0%, #e100ff 100%); /* Dégradé plus clair au survol */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 12px rgba(0, 234, 255, 0.8), 0 0 20px rgba(225, 0, 255, 0.8); /* Glow plus intense */
             text-decoration: none;
         }
         body.dark .hashtags a, body.dark .hashtags span {
-            background: linear-gradient(90deg, #00d4ff 0%, #d400ff 100%); /* Même dégradé en mode sombre */
-            color: #fff;
-            box-shadow: 0 0 8px rgba(0, 212, 255, 0.6), 0 0 12px rgba(212, 0, 255, 0.6); /* Même effet néon */
+            color: #63b3ed; /* Couleur de secours pour le mode sombre */
+            background: linear-gradient(90deg, #00d4ff 0%, #d400ff 100%); /* Même dégradé */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 8px rgba(0, 212, 255, 0.6), 0 0 12px rgba(212, 0, 255, 0.6);
         }
         body.dark .hashtags a:hover {
-            background: linear-gradient(90deg, #00eaff 0%, #e100ff 100%); /* Même dégradé au survol en mode sombre */
-            box-shadow: 0 0 12px rgba(0, 234, 255, 0.8), 0 0 20px rgba(225, 0, 255, 0.8); /* Glow plus intense */
+            background: linear-gradient(90deg, #00eaff 0%, #e100ff 100%); /* Dégradé plus clair au survol */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 12px rgba(0, 234, 255, 0.8), 0 0 20px rgba(225, 0, 255, 0.8);
         }
         .hashtags a:nth-child(1), .hashtags span:nth-child(1) { animation-delay: 0.1s; }
         .hashtags a:nth-child(2), .hashtags span:nth-child(2) { animation-delay: 0.2s; }
