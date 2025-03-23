@@ -358,59 +358,65 @@
             color: #e2e8f0;
         }
         /* Hashtags pour les outils */
-        .hashtags {
-            display: inline-flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .hashtags a, .hashtags span {
-            color: #0a66c2; /* Couleur de secours pour les navigateurs ne supportant pas le dégradé */
-            font-weight: 500;
-            text-decoration: none;
-            padding: 4px 8px;
-            border-radius: 12px;
-            transition: transform 0.3s ease, text-shadow 0.3s ease;
-            display: inline-block;
-            opacity: 0;
-            animation: fadeInHashtag 0.5s ease forwards;
-            /* Dégradé appliqué au texte */
-            background: linear-gradient(90deg, #00d4ff 0%, #d400ff 100%); /* Dégradé bleu clair/violet néon */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            /* Effet néon glow autour du texte */
-            text-shadow: 0 0 8px rgba(0, 212, 255, 0.6), 0 0 12px rgba(212, 0, 255, 0.6);
-        }
-        .hashtags a:hover {
-            transform: scale(1.1);
-            background: linear-gradient(90deg, #00eaff 0%, #e100ff 100%); /* Dégradé plus clair au survol */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 12px rgba(0, 234, 255, 0.8), 0 0 20px rgba(225, 0, 255, 0.8); /* Glow plus intense */
-            text-decoration: none;
-        }
-        body.dark .hashtags a, body.dark .hashtags span {
-            color: #63b3ed; /* Couleur de secours pour le mode sombre */
-            background: linear-gradient(90deg, #00d4ff 0%, #d400ff 100%); /* Même dégradé */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 8px rgba(0, 212, 255, 0.6), 0 0 12px rgba(212, 0, 255, 0.6);
-        }
-        body.dark .hashtags a:hover {
-            background: linear-gradient(90deg, #00eaff 0%, #e100ff 100%); /* Dégradé plus clair au survol */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 12px rgba(0, 234, 255, 0.8), 0 0 20px rgba(225, 0, 255, 0.8);
-        }
-        .hashtags a:nth-child(1), .hashtags span:nth-child(1) { animation-delay: 0.1s; }
-        .hashtags a:nth-child(2), .hashtags span:nth-child(2) { animation-delay: 0.2s; }
-        .hashtags a:nth-child(3), .hashtags span:nth-child(3) { animation-delay: 0.3s; }
-        .hashtags a:nth-child(4), .hashtags span:nth-child(4) { animation-delay: 0.4s; }
-        .hashtags a:nth-child(5), .hashtags span:nth-child(5) { animation-delay: 0.5s; }
-        .hashtags a:nth-child(6), .hashtags span:nth-child(6) { animation-delay: 0.6s; }
-        @keyframes fadeInHashtag {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+.hashtags {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.hashtags a, .hashtags span {
+    color: #0a66c2; /* Couleur de secours pour les navigateurs ne supportant pas le dégradé */
+    font-weight: 500;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInHashtag 0.5s ease forwards;
+    /* Dégradé appliqué au texte */
+    background: linear-gradient(90deg, #00d4ff 0%, #d400ff 100%); /* Dégradé bleu clair/violet néon */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Effet néon glow réduit */
+    text-shadow: 0 0 4px rgba(0, 212, 255, 0.4), 0 0 6px rgba(212, 0, 255, 0.4); /* Glow plus subtil */
+}
+
+.hashtags a:hover {
+    transform: scale(1.1);
+    background: linear-gradient(90deg, #00eaff 0%, #e100ff 100%); /* Dégradé plus clair au survol */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 6px rgba(0, 234, 255, 0.6), 0 0 10px rgba(225, 0, 255, 0.6); /* Glow légèrement plus intense au survol, mais réduit */
+    text-decoration: none;
+}
+
+body.dark .hashtags a, body.dark .hashtags span {
+    color: #63b3ed; /* Couleur de secours pour le mode sombre */
+    background: linear-gradient(90deg, #00d4ff 0%, #d400ff 100%); /* Même dégradé */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 4px rgba(0, 212, 255, 0.4), 0 0 6px rgba(212, 0, 255, 0.4); /* Glow réduit en mode sombre */
+}
+
+body.dark .hashtags a:hover {
+    background: linear-gradient(90deg, #00eaff 0%, #e100ff 100%); /* Dégradé plus clair au survol */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 6px rgba(0, 234, 255, 0.6), 0 0 10px rgba(225, 0, 255, 0.6); /* Glow réduit au survol en mode sombre */
+}
+
+.hashtags a:nth-child(1), .hashtags span:nth-child(1) { animation-delay: 0.1s; }
+.hashtags a:nth-child(2), .hashtags span:nth-child(2) { animation-delay: 0.2s; }
+.hashtags a:nth-child(3), .hashtags span:nth-child(3) { animation-delay: 0.3s; }
+.hashtags a:nth-child(4), .hashtags span:nth-child(4) { animation-delay: 0.4s; }
+.hashtags a:nth-child(5), .hashtags span:nth-child(5) { animation-delay: 0.5s; }
+.hashtags a:nth-child(6), .hashtags span:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInHashtag {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
         /* Compétences et Langues */
         .skills ul, .languages ul {
             display: flex;
