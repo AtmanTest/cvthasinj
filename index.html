@@ -326,19 +326,25 @@
         }
         /* Style pour les hashtags des outils */
         .tools-hashtags {
-            color: #f5c518; /* Couleur jaune pour les hashtags */
+            color: #1e90ff; /* Couleur de secours pour les anciens navigateurs */
+            background: linear-gradient(90deg, #1e90ff, #8a2be2); /* Dégradé de bleu à violet */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-weight: 500;
-            word-spacing: 8px; /* Espacement entre les hashtags */
-            transition: color 0.3s;
+            word-spacing: 8px;
+            transition: opacity 0.3s;
         }
         .tools-hashtags:hover {
-            color: #d4a017; /* Couleur plus foncée au survol */
+            opacity: 0.8;
         }
         body.dark .tools-hashtags {
-            color: #63b3ed; /* Couleur bleue claire en mode sombre */
+            color: #63b3ed; /* Couleur de secours pour le mode sombre */
+            background: linear-gradient(90deg, #63b3ed, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         body.dark .tools-hashtags:hover {
-            color: #4299e1; /* Couleur plus foncée au survol en mode sombre */
+            opacity: 0.8;
         }
         /* Compétences et Langues */
         .skills ul, .languages ul {
