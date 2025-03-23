@@ -118,7 +118,7 @@
             color: #fff;
             height: 100vh;
             position: fixed;
-            top: 70px; /* Ajustement pour le header */
+            top: 70px;
             padding: 20px;
             display: flex;
             flex-direction: column;
@@ -195,7 +195,7 @@
         .main-content {
             margin-left: 250px;
             width: calc(100% - 250px);
-            padding: 90px 20px 20px; /* Ajustement pour le header */
+            padding: 90px 20px 20px;
         }
         .container {
             max-width: 900px;
@@ -359,7 +359,7 @@
         }
         .cta-final p {
             font-size: 1.1em;
-            margin-bottom: 20px; /* Ajout d'espace pour éviter le chevauchement */
+            margin-bottom: 20px;
         }
         .cta-final a {
             background: #f5c518;
@@ -381,6 +381,24 @@
         }
         .lang-fr.active, .lang-en.active {
             display: block;
+        }
+        /* Education Item */
+        .education-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .cert-logo {
+            width: 50px;
+            height: auto;
+            transition: transform 0.3s;
+        }
+        .cert-logo:hover {
+            transform: scale(1.1);
+        }
+        body.dark .cert-logo {
+            filter: brightness(0) invert(1);
         }
         /* Animations */
         @keyframes fadeIn {
@@ -408,13 +426,13 @@
                 width: 100%;
                 height: auto;
                 position: relative;
-                top: 60px; /* Ajustement pour le header */
+                top: 60px;
                 padding: 15px;
             }
             .main-content {
                 margin-left: 0;
                 width: 100%;
-                padding-top: 120px; /* Ajustement pour le header et la sidebar */
+                padding-top: 120px;
             }
             .hero h1 {
                 font-size: 1.8em;
@@ -426,6 +444,13 @@
                 flex-direction: column;
             }
             .job .logo {
+                margin-bottom: 10px;
+            }
+            .education-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .cert-logo {
                 margin-bottom: 10px;
             }
         }
@@ -832,12 +857,22 @@
             <div id="formations" class="section lang-fr active">
                 <h2>Formations</h2>
                 <div class="education">
-                    <h3>Certification Professional Scrum Product Owner</h3>
-                    <p><strong>2020</strong> | Scrum.org</p>
+                    <div class="education-item">
+                        <img src="images/pspo-logo.png" alt="PSPO Certified" class="cert-logo">
+                        <div>
+                            <h3>Certification Professional Scrum Product Owner</h3>
+                            <p><strong>2020</strong> | Scrum.org</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="education">
-                    <h3>Formation ISTQB</h3>
-                    <p><strong>2015</strong> | Learning Tree International</p>
+                    <div class="education-item">
+                        <img src="images/istqb-logo.png" alt="ISTQB Certified" class="cert-logo">
+                        <div>
+                            <h3>Formation ISTQB</h3>
+                            <p><strong>2015</strong> | Learning Tree International</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="education">
                     <h3>Formation Administrateur de Sécurité</h3>
@@ -848,12 +883,22 @@
             <div id="education" class="section lang-en">
                 <h2>Education</h2>
                 <div class="education">
-                    <h3>Professional Scrum Product Owner Certification</h3>
-                    <p><strong>2020</strong> | Scrum.org</p>
+                    <div class="education-item">
+                        <img src="images/pspo-logo.png" alt="PSPO Certified" class="cert-logo">
+                        <div>
+                            <h3>Professional Scrum Product Owner Certification</h3>
+                            <p><strong>2020</strong> | Scrum.org</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="education">
-                    <h3>ISTQB Training</h3>
-                    <p><strong>2015</strong> | Learning Tree International</p>
+                    <div class="education-item">
+                        <img src="images/istqb-logo.png" alt="ISTQB Certified" class="cert-logo">
+                        <div>
+                            <h3>ISTQB Training</h3>
+                            <p><strong>2015</strong> | Learning Tree International</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="education">
                     <h3>Security Administrator Training</h3>
@@ -901,7 +946,6 @@
     <script>
         // Fonction pour gérer le changement de langue
         function setLanguage(lang) {
-            // Mettre à jour les éléments de contenu
             document.querySelectorAll('.lang-fr, .lang-en').forEach(element => {
                 element.classList.remove('active');
             });
@@ -909,12 +953,10 @@
                 element.classList.add('active');
             });
 
-            // Mettre à jour les boutons de langue dans le header
             document.getElementById('lang-fr').classList.toggle('active', lang === 'fr');
             document.getElementById('lang-en').classList.toggle('active', lang === 'en');
         }
 
-        // Écouteurs pour les boutons de langue
         document.getElementById('lang-fr').addEventListener('click', () => setLanguage('fr'));
         document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
 
