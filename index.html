@@ -166,7 +166,7 @@
         .sidebar .contact {
             font-size: 0.85em;
             text-align: center;
-            margin-bottom: 20px; /* Ajout d'une marge pour espacer du contenu suivant */
+            margin-bottom: 20px;
         }
         .sidebar .contact a {
             color: #f5c518;
@@ -324,6 +324,22 @@
         body.dark .job ul li {
             color: #e2e8f0;
         }
+        /* Style pour les hashtags des outils */
+        .tools-hashtags {
+            color: #f5c518; /* Couleur jaune pour les hashtags */
+            font-weight: 500;
+            word-spacing: 8px; /* Espacement entre les hashtags */
+            transition: color 0.3s;
+        }
+        .tools-hashtags:hover {
+            color: #d4a017; /* Couleur plus foncée au survol */
+        }
+        body.dark .tools-hashtags {
+            color: #63b3ed; /* Couleur bleue claire en mode sombre */
+        }
+        body.dark .tools-hashtags:hover {
+            color: #4299e1; /* Couleur plus foncée au survol en mode sombre */
+        }
         /* Compétences et Langues */
         .skills ul, .languages ul {
             display: flex;
@@ -480,7 +496,6 @@
         <h1>Jahangir Thasin</h1>
         <p id="sidebar-title-fr" class="lang-fr active">Expert en Tests Logiciels</p>
         <p id="sidebar-title-en" class="lang-en">Software Testing Expert</p>
-        <!-- Déplacer la section contact ici -->
         <div class="contact">
             <p>
                 <a href="tel:+33673563266">
@@ -511,7 +526,6 @@
             </p>
         </div>
         <div class="nav-links">
-            <!-- Navigation en français -->
             <div class="lang-fr active">
                 <a href="#apropos">À Propos</a>
                 <a href="#experiences">Expériences</a>
@@ -519,7 +533,6 @@
                 <a href="#formations">Formations</a>
                 <a href="#langues">Langues</a>
             </div>
-            <!-- Navigation en anglais -->
             <div class="lang-en">
                 <a href="#about">About Me</a>
                 <a href="#experience">Experience</a>
@@ -578,7 +591,7 @@
                             <li>Exécution des tests fonctionnels et de non-régression</li>
                             <li>Élaboration de rapports détaillés sur l’avancement et la qualité</li>
                         </ul>
-                        <p><strong>Outils :</strong> JIRA, Xray, AIS, RDJ, SQL Oracle</p>
+                        <p><strong>Outils :</strong> <span class="tools-hashtags">#JIRA #Xray #AIS #RDJ #SQLOracle</span></p>
                     </div>
                 </div>
                 <div class="job">
@@ -597,7 +610,7 @@
                             <li>Création et suivi des tickets de bugs (JIRA)</li>
                             <li>Tests de non-régression et participation aux réunions Go/No-Go</li>
                         </ul>
-                        <p><strong>Outils :</strong> iOS, Android, JIRA, Xray, Charles Proxy, Confluence</p>
+                        <p><strong>Outils :</strong> <span class="tools-hashtags">#iOS #Android #JIRA #Xray #CharlesProxy #Confluence</span></p>
                     </div>
                 </div>
                 <div class="job">
@@ -614,7 +627,7 @@
                             <li>Conception des plans de tests (fonctionnels et non-régressions)</li>
                             <li>Reporting sur la qualité</li>
                         </ul>
-                        <p><strong>Outils :</strong> Tuleap, Excel, Dynatrace</p>
+                        <p><strong>Outils :</strong> <span class="tools-hashtags">#Tuleap #Excel #Dynatrace</span></p>
                     </div>
                 </div>
                 <div class="job">
@@ -630,7 +643,7 @@
                             <li>Tests de portabilité et suivi des tests automatisés (Ranorex)</li>
                             <li>Support Niveau 3</li>
                         </ul>
-                        <p><strong>Outils :</strong> JIRA, Zephyr, Confluence, Ranorex</p>
+                        <p><strong>Outils :</strong> <span class="tools-hashtags">#JIRA #Zephyr #Confluence #Ranorex</span></p>
                     </div>
                 </div>
                 <div class="job">
@@ -645,7 +658,7 @@
                             <li>Création et modification des cas de test</li>
                             <li>Vérification de l’ergonomie et de la qualité des données</li>
                         </ul>
-                        <p><strong>Outils :</strong> Redmine</p>
+                        <p><strong>Outils :</strong> <span class="tools-hashtags">#Redmine</span></p>
                     </div>
                 </div>
                 <div class="job">
@@ -662,7 +675,7 @@
                             <li>Automatisation avec AutoIT</li>
                             <li>Support client et rédaction de FAQ</li>
                         </ul>
-                        <p><strong>Outils :</strong> Flyspray, AutoIT</p>
+                        <p><strong>Outils :</strong> <span class="tools-hashtags">#Flyspray #AutoIT</span></p>
                     </div>
                 </div>
                 <div class="job">
@@ -678,6 +691,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- Experience (English) -->
             <div id="experience" class="section lang-en">
                 <h2>Professional Experience</h2>
@@ -694,7 +708,7 @@
                             <li>Execution of functional and non-regression tests</li>
                             <li>Preparation of detailed reports on progress and quality</li>
                         </ul>
-                        <p><strong>Tools:</strong> JIRA, Xray, AIS, RDJ, SQL Oracle</p>
+                        <p><strong>Tools:</strong> <span class="tools-hashtags">#JIRA #Xray #AIS #RDJ #SQLOracle</span></p>
                     </div>
                 </div>
                 <div class="job">
@@ -713,7 +727,7 @@
                             <li>Creation and tracking of bug tickets (JIRA)</li>
                             <li>Non-regression testing and participation in Go/No-Go meetings</li>
                         </ul>
-                        <p><strong>Tools:</strong> iOS, Android, JIRA, Xray, Charles Proxy, Confluence</p>
+                        <p><strong>Tools:</strong> <span class="tools-hashtags">#iOS #Android #JIRA #Xray #CharlesProxy #Confluence</span></p>
                     </div>
                 </div>
                 <div class="job">
@@ -730,7 +744,7 @@
                             <li>Design of test plans (functional and non-regression)</li>
                             <li>Quality reporting</li>
                         </ul>
-                        <p><strong>Tools:</strong> Tuleap, Excel, Dynatrace</p>
+                        <p><strong>Tools:</strong> <span class="tools-hashtags">#Tuleap #Excel #Dynatrace</span></p>
                     </div>
                 </div>
                 <div class="job">
@@ -746,7 +760,7 @@
                             <li>Portability testing and monitoring of automated tests (Ranorex)</li>
                             <li>Level 3 support</li>
                         </ul>
-                        <p><strong>Tools:</strong> JIRA, Zephyr, Confluence, Ranorex</p>
+                        <p><strong>Tools:</strong> <span class="tools-hashtags">#JIRA #Zephyr #Confluence #Ranorex</span></p>
                     </div>
                 </div>
                 <div class="job">
@@ -761,7 +775,7 @@
                             <li>Creation and modification of test cases</li>
                             <li>Verification of ergonomics and data quality</li>
                         </ul>
-                        <p><strong>Tools:</strong> Redmine</p>
+                        <p><strong>Tools:</strong> <span class="tools-hashtags">#Redmine</span></p>
                     </div>
                 </div>
                 <div class="job">
@@ -778,7 +792,7 @@
                             <li>Automation with AutoIT</li>
                             <li>Customer support and FAQ writing</li>
                         </ul>
-                        <p><strong>Tools:</strong> Flyspray, AutoIT</p>
+                        <p><strong>Tools:</strong> <span class="tools-hashtags">#Flyspray #AutoIT</span></p>
                     </div>
                 </div>
                 <div class="job">
